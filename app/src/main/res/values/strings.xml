@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">bebehelper-mvvm</string>
+
+    <string name="grouping">그룹핑</string>
+    <string name="recommended_activity">추천 활동</string>
+    <string name="my_page">마이페이지</string>
 </resources>
