@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:gravity="center_vertical"
+            android:letterSpacing="-0.04"
+            android:lineSpacingExtra="7sp"
+            android:minHeight="20dp"
+            android:textColor="@color/gray_600"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            android:visibility="gone"
+            tools:text="텍스트" />
+
+        <LinearLayout
+            android:id="@+id/ll_input"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/et_input"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textColor="@color/gray_900"
+                android:textColorHint="@color/gray_600"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                tools:hint="텍스트 입력" />
+
+            <ImageButton
+                android:id="@+id/btn_input_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:background="@color/transparent"
+                android:src="@drawable/ic_18_px_del"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/view_delete_margin"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_authentication"
+                android:layout_width="77dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp"
+                android:background="@color/gray_600"
+                android:gravity="center"
+                android:letterSpacing="-0.04"
+                android:lineSpacingExtra="8sp"
+                android:text="인증요청"
+                android:textColor="@color/white"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/tv_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:lineSpacingExtra="5.6sp"
+                android:textColor="@color/gray_900"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="03:00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_600" />
+
+            <TextView
+                android:id="@+id/tv_error_hint"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center_vertical"
+                android:letterSpacing="-0.04"
+                android:lineSpacingExtra="7sp"
+                android:minHeight="20dp"
+                android:textColor="@color/red_500"
+                android:textSize="13dp"
+                android:textStyle="normal"
+                android:visibility="gone"
+                tools:text="힌트 메시지" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
