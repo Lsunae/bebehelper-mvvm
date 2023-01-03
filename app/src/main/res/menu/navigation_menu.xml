@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_grouping"
+        android:enabled="true"
+        android:title="@string/grouping" />
+    <item
+        android:id="@+id/action_recommended_activity"
+        android:enabled="true"
+        android:title="@string/recommended_activity" />
+    <item
+        android:id="@+id/action_my_page"
+        android:enabled="true"
+        android:title="@string/my_page" />
+</menu>
