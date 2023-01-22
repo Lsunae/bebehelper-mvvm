@@ -52,6 +52,10 @@ dependencies {
     // refresh
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+
     // room components
     implementation "androidx.room:room-runtime:2.4.3"
     androidTestImplementation "androidx.room:room-testing:2.4.3"
