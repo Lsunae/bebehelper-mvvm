@@ -1,4 +1,4 @@
-package com.leesunae.bebehelper_mvp.view.base
+package com.example.bebehelper_mvvm.view.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
