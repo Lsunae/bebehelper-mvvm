@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="content"
+            type="String" />
+
+        <variable
+            name="area"
+            type="String" />
+
+        <variable
+            name="childLimitCount"
+            type="String" />
+
+        <variable
+            name="childLimitAge"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:minHeight="24dp"
+            android:text="@{title}"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="잠실 공동육아해요~" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:minHeight="20dp"
+            android:textColor="@color/gray_900"
+            android:text="@{content}"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:text="잠실에서 함께 이야기하며 육아하실 분들 계신가요~~" />
+
+        <LinearLayout
+            android:id="@+id/ll_group_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content">
+
+            <TextView
+                android:id="@+id/tv_area"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:text="@{area}"
+                android:textColor="@color/gray_900"
+                android:textSize="11sp"
+                android:textStyle="normal"
+                tools:text="서울 잠실동" />
+
+            <TextView
+                android:id="@+id/tv_child_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:textColor="@color/gray_900"
+                android:textSize="11sp"
+                android:text="@{childLimitAge}"
+                android:layout_marginHorizontal="10dp"
+                android:textStyle="normal"
+                tools:text="~5세" />
+
+            <TextView
+                android:id="@+id/tv_child_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:text="@{childLimitCount}"
+                android:textColor="@color/gray_900"
+                android:textSize="11sp"
+                android:textStyle="normal"
+                tools:text="4명" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@+id/ll_group_info"
+            android:layout_marginTop="20dp"
+            android:background="@color/gray_200" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
