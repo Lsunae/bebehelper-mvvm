@@ -1,15 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.bebehelper_mvvm"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -46,6 +49,15 @@ dependencies {
 
     // recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    // 새로고침
+    // refresh
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // room components
+    implementation "androidx.room:room-runtime:2.4.3"
+    androidTestImplementation "androidx.room:room-testing:2.4.3"
+    kapt "androidx.room:room-compiler:2.4.3"
+
+    // hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
 }
