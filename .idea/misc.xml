@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/drawable-v24/bg_round_dialog.xml" value="0.1955" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/drawable/ic_18_px_del.xml" value="0.1485" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/drawable/menu_item_color.xml" value="0.1955" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/layout/activity_main.xml" value="0.1875" />
+        <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/layout/dialog.xml" value="0.1875" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/layout/fragment_grouping.xml" value="0.5" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/layout/fragment_my_page.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/layout/fragment_recomended_activity.xml" value="0.2146951537258989" />
+        <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/layout/item_grouping.xml" value="0.21458333333333332" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/layout/layout_actionbar.xml" value="0.2703125" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/layout/layout_input_bar.xml" value="0.2703125" />
         <entry key="..\:/AndroidStudioProjects_desktop/bebehelper-mvvm/app/src/main/res/menu/navigation_menu.xml" value="0.1875" />
