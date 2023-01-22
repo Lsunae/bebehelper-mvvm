@@ -52,7 +52,7 @@ dependencies {
     // refresh
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
-    // LiveData
+    // ViewModel, LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
 
