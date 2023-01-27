@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="child_age_array">
+        <item>2세</item>
+        <item>3세</item>
+        <item>4세</item>
+        <item>5세</item>
+        <item>6세</item>
+    </string-array>
+
+    <string-array name="child_count_array">
+        <item>2명</item>
+        <item>3명</item>
+        <item>4명</item>
+        <item>5명</item>
+    </string-array>
+
+    <string-array name="area_array">
+        <item>잠실동</item>
+        <item>삼전동</item>
+        <item>석촌동</item>
+        <item>가락동</item>
+        <item>방이동</item>
+        <item>문정동</item>
+        <item>장지동</item>
+        <item>거여동</item>
+        <item>마천동</item>
+        <item>오금동</item>
+        <item>신천동</item>
+    </string-array>
+</resources>
