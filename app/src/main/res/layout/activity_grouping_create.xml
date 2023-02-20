@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/inc_actionbar"
+            layout="@layout/layout_actionbar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionbar_height"
+            android:background="@drawable/bg_line_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inc_actionbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:id="@+id/view_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_200"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/group_title"
+                    app:layout_constraintTop_toBottomOf="@+id/view_line" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/title_layout"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="@string/group_title_hint"
+                    android:theme="@style/EditTextStyle"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="@color/gray_900"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/group_area"
+                    app:layout_constraintTop_toBottomOf="@+id/title_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/area_layout"
+                    style="@style/InputMenuTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/group_area_hint"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/tv_select_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:paddingHorizontal="10dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_child_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/group_child_age"
+                    android:textColor="@color/gray_900"
+                    app:layout_constraintTop_toBottomOf="@+id/area_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/age_layout"
+                    style="@style/InputMenuTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/group_child_age_hint"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_child_age">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/tv_select_child_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:paddingHorizontal="10dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_child_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/group_child_count"
+                    android:textColor="@color/gray_900"
+                    app:layout_constraintTop_toBottomOf="@+id/age_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/child_count_layout"
+                    style="@style/InputMenuTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/group_child_count_hint"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_child_count">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/tv_select_child_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:paddingHorizontal="10dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/group_content"
+                    app:layout_constraintTop_toBottomOf="@+id/child_count_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/content_layout"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="@string/group_content_hint"
+                    android:theme="@style/EditTextStyle"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="@color/gray_900"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_create"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_height"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@color/pink"
+                    android:gravity="center"
+                    android:text="@string/group_create"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/content_layout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
