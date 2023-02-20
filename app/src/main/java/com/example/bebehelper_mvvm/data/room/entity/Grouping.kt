@@ -3,7 +3,7 @@ package com.example.bebehelper_mvvm.data.room.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+import com.example.bebehelper_mvvm.data.model.GroupingItem
 
 @Entity(tableName = "grouping")
 data class Grouping(
@@ -30,4 +30,17 @@ data class Grouping(
 
     @ColumnInfo(name = "writerNickname")
     var writerNickname: String? = ""
-)
+) {
+    fun toGroupingItem(): GroupingItem {
+        return GroupingItem(
+            id,
+            title,
+            area,
+            ageLimit,
+            childCount,
+            content,
+            writerId,
+            writerNickname
+        )
+    }
+}
