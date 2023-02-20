@@ -4,11 +4,12 @@ import com.example.bebehelper_mvvm.data.room.database.GroupingDB
 import com.example.bebehelper_mvvm.util.AppExecutors
 import com.example.bebehelper_mvvm.data.repository.Callback
 import com.example.bebehelper_mvvm.data.room.entity.Grouping
+import javax.inject.Inject
 
-class GroupingLocalDataSourceImpl(
-    private val appExecutors: AppExecutors,
+class GroupingLocalDataSourceImpl @Inject constructor(
     private val groupingDB: GroupingDB
 ) : GroupingLocalDataSource {
+    private val appExecutors: AppExecutors = AppExecutors()
 
     override fun createGrouping(
         title: String,
@@ -66,16 +67,5 @@ class GroupingLocalDataSourceImpl(
 
     override fun deleteGrouping(id: Int, callback: Callback<String>) {
 
-    }
-
-    companion object {
-        fun getInstance(
-            appExecutors: AppExecutors,
-            groupingDatabase: GroupingDB
-        ): GroupingLocalDataSource =
-            GroupingLocalDataSourceImpl(
-                appExecutors,
-                groupingDatabase
-            )
     }
 }

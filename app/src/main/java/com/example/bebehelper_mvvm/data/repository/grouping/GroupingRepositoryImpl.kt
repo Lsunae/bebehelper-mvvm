@@ -3,8 +3,9 @@ package com.example.bebehelper_mvvm.data.repository.grouping
 import com.example.bebehelper_mvvm.data.repository.Callback
 import com.example.bebehelper_mvvm.data.source.local.grouping.GroupingLocalDataSource
 import com.example.bebehelper_mvvm.data.room.entity.Grouping
+import javax.inject.Inject
 
-class GroupingRepositoryImpl private constructor(
+class GroupingRepositoryImpl @Inject constructor(
     private val localDataSource: GroupingLocalDataSource
 ) : GroupingRepository {
     override fun createGrouping(
@@ -42,10 +43,5 @@ class GroupingRepositoryImpl private constructor(
 
     override fun deleteGrouping(id: Int, callback: Callback<String>) {
         localDataSource.deleteGrouping(id, callback)
-    }
-
-    companion object {
-        fun getInstance(localDataSource: GroupingLocalDataSource): GroupingRepository =
-            GroupingRepositoryImpl(localDataSource)
     }
 }

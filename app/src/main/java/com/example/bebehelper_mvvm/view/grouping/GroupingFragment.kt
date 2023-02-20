@@ -1,13 +1,28 @@
 package com.example.bebehelper_mvvm.view.grouping
 
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bebehelper_mvvm.R
 import com.example.bebehelper_mvvm.databinding.FragmentGroupingBinding
 import com.example.bebehelper_mvvm.view.base.BaseFragment
 import com.example.bebehelper_mvvm.view.grouping.adapter.GroupingAdapter
+import com.example.bebehelper_mvvm.viewModel.GroupingViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GroupingFragment : BaseFragment<FragmentGroupingBinding>(R.layout.fragment_grouping) {
+    private val viewModel: GroupingViewModel by viewModels()
     private lateinit var groupingAdapter: GroupingAdapter
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setAdapter()
+        viewModel.getGroupingList()
+        setupViewModel()
+    }
 
     /** 리사이클러뷰 어댑터 셋팅 */
     private fun setAdapter() {
@@ -16,6 +31,12 @@ class GroupingFragment : BaseFragment<FragmentGroupingBinding>(R.layout.fragment
             // 기존 코드
             layoutManager = LinearLayoutManager(requireContext())
             adapter = groupingAdapter
+        }
+    }
+
+    private fun setupViewModel() {
+        viewModel.groupingList.observe(viewLifecycleOwner) {
+            groupingAdapter.addData(it)
         }
     }
 

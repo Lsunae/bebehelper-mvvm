@@ -8,7 +8,9 @@ import com.example.bebehelper_mvvm.view.grouping.GroupingFragment
 import com.example.bebehelper_mvvm.view.myPage.MyPageFragment
 import com.example.bebehelper_mvvm.view.recommendedActivity.RecommendedActivityFragment
 import com.example.bebehelper_mvvm.view.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private var groupingFragment: GroupingFragment? = null
     private var recommendedActivityFragment: RecommendedActivityFragment? = null
@@ -20,7 +22,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         initNavigationBar()
     }
-
 
     private fun initNavigationBar() {
         binding.bottomNavigationView.run {
