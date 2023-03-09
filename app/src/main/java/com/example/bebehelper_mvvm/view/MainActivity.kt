@@ -14,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private var groupingFragment: GroupingFragment? = null
     private var recommendedActivityFragment: RecommendedActivityFragment? = null
-    private var myPageFragment: MyPageFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,17 +23,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun initNavigationBar() {
+        println("initNavigationBar_ ")
         binding.bottomNavigationView.run {
             setOnItemSelectedListener {
+                println("initNavigationBar_ ${it.itemId}")
                 when (it.itemId) {
                     R.id.action_grouping -> {
+                        println("initNavigationBar_grouping_ ${it.itemId}")
                         changeFragment(MenuType.GROUPING)
                     }
                     R.id.action_recommended_activity -> {
+                        println("initNavigationBar_recommended_ ${it.itemId}")
                         changeFragment(MenuType.RECOMMENDED_ACTIVITY)
-                    }
-                    R.id.action_my_page -> {
-                        changeFragment(MenuType.MY_PAGE)
                     }
                 }
                 true
@@ -47,11 +47,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun selectMenuTabIndex(type: MenuType?) {
         val navigation = binding.bottomNavigationView
         runOnUiThread {
+            println("select_tab_ $type")
             when (type) {
-                MenuType.RECOMMENDED_ACTIVITY -> navigation.selectedItemId =
-                    R.id.action_recommended_activity
-                MenuType.MY_PAGE -> navigation.selectedItemId = R.id.action_my_page
-                else -> navigation.selectedItemId = R.id.action_grouping
+                MenuType.RECOMMENDED_ACTIVITY -> {
+
+                    println("select_tab_1 $type")
+                    navigation.selectedItemId = R.id.action_recommended_activity
+                }
+                else -> {
+
+                    println("select_tab_2 $type")
+                    navigation.selectedItemId = R.id.action_grouping
+                }
             }
         }
     }
@@ -61,8 +68,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
      * 각 프래그먼트 화면 유지를 위해 hide, show 사용
      */
     private fun changeFragment(type: MenuType) {
+        println("type_ $type")
         when (type) {
             MenuType.GROUPING -> {
+                println("type_groupingFragment_ $groupingFragment")
+                println("type_1 $type")
                 if (groupingFragment == null) {
                     groupingFragment = GroupingFragment()
                     supportFragmentManager.beginTransaction()
@@ -73,39 +83,21 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 }
                 if (recommendedActivityFragment != null) supportFragmentManager.beginTransaction()
                     .hide(recommendedActivityFragment!!).commit()
-                if (myPageFragment != null) supportFragmentManager.beginTransaction()
-                    .hide(myPageFragment!!).commit()
             }
             MenuType.RECOMMENDED_ACTIVITY -> {
+                println("type_recommendedActivityFragment_ $recommendedActivityFragment")
+                println("type_2 $type")
                 if (recommendedActivityFragment == null) {
                     recommendedActivityFragment = RecommendedActivityFragment()
                     supportFragmentManager.beginTransaction()
                         .add(binding.mainContainer.id, recommendedActivityFragment!!).commit()
                 } else {
-                    supportFragmentManager.beginTransaction().show(recommendedActivityFragment!!)
-                        .commit()
+                    supportFragmentManager.beginTransaction().show(recommendedActivityFragment!!).commit()
                     recommendedActivityFragment!!.onResume()
                 }
 
                 if (groupingFragment != null) supportFragmentManager.beginTransaction()
                     .hide(groupingFragment!!).commit()
-                if (myPageFragment != null) supportFragmentManager.beginTransaction()
-                    .hide(myPageFragment!!).commit()
-            }
-            MenuType.MY_PAGE -> {
-                if (myPageFragment == null) {
-                    myPageFragment = MyPageFragment()
-                    supportFragmentManager.beginTransaction()
-                        .add(binding.mainContainer.id, myPageFragment!!).commit()
-                } else {
-                    supportFragmentManager.beginTransaction().show(myPageFragment!!).commit()
-                    myPageFragment!!.onResume()
-                }
-
-                if (groupingFragment != null) supportFragmentManager.beginTransaction()
-                    .hide(groupingFragment!!).commit()
-                if (recommendedActivityFragment != null) supportFragmentManager.beginTransaction()
-                    .hide(recommendedActivityFragment!!).commit()
             }
         }
     }
