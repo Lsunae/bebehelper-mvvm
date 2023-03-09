@@ -26,4 +26,17 @@
     <string name="age_count">%1$s세</string>
     <string name="user_count">%1$s명</string>
 
+    <!-- Recommended Activity -->
+    <string name="play_block">블록 놀이</string>
+    <string name="play_drawing">그림 그리기</string>
+    <string name="play_cooking">요리하기</string>
+    <string name="play_water">물놀이</string>
+    <string name="play_plants">식물 심기</string>
+
+    <string name="play_block_explanation">성장하는 시기에 블록놀이는 재미와 함께 두뇌회전에 도움이 될 수 있어요~ 블록놀이를 통해 멋진 작품을 만들어보아요!</string>
+    <string name="play_drawing_explanation">아이의 상상력을 펼칠 수 있는 그림그리기를 추천합니다~\n날씨가 좋은 날에는 아이와 함께 소풍도 즐기며 풍경을 그리는 것도 좋아요!</string>
+    <string name="play_cooking_explanation">아이와 함께 맛있는 음식을 만들어 보세요!\n여러 재료들을 만지며 촉감놀이도 되며 좋은 기억을 남길 수 있어요~</string>
+    <string name="play_water_explanation">아이와 부모님이 함께하는 물놀이는 아이에게 색다른 경험을 주고 좋은 추억을 남길 수 있어요!\n물놀이를 추천 드립니다 :)</string>
+    <string name="play_plants_explanation">아이와 화단을 식물을 심어보는건 어떤가요?\n작은 화분을 구입하여 아이와 같이 조그마한 화단을 꾸며보는 것도 좋을 것 같네요^_^</string>
+
 </resources>
