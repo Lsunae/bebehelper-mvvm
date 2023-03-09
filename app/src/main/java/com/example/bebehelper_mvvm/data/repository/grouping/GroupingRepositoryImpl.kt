@@ -14,8 +14,8 @@ class GroupingRepositoryImpl @Inject constructor(
         ageLimit: String,
         childCount: Int,
         content: String,
-        writerId: Int,
-        writerNickname: String,
+        writerId: Int?,
+        writerNickname: String?,
         callback: Callback<Boolean>
     ) {
         localDataSource.createGrouping(title, area, ageLimit, childCount, content, writerId, writerNickname, callback)

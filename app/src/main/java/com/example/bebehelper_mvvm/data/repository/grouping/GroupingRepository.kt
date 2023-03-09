@@ -10,8 +10,8 @@ interface GroupingRepository {
         ageLimit: String,
         childCount: Int,
         content: String,
-        writerId: Int,
-        writerNickname: String,
+        writerId: Int?,
+        writerNickname: String?,
         callback: Callback<Boolean>
     )
 

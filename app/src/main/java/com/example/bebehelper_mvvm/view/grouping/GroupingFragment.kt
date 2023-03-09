@@ -1,5 +1,6 @@
 package com.example.bebehelper_mvvm.view.grouping
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -19,9 +20,19 @@ class GroupingFragment : BaseFragment<FragmentGroupingBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setClickEvent()
         setAdapter()
         viewModel.getGroupingList()
         setupViewModel()
+    }
+
+    private fun setClickEvent() {
+        binding.apply {
+            ivCreate.setOnClickListener {
+                val intent = Intent(activity, GroupingCreateActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 
     /** 리사이클러뷰 어댑터 셋팅 */

@@ -22,6 +22,8 @@
     <string name="group_content_hint">내용을 입력해주세요</string>
     <string name="group_create">등록하기</string>
     <string name="group_create_success">그룹핑 글이 등록되었습니다.</string>
+    <string name="group_create_fail">그룹핑 글을 다시 확인해주세요.</string>
     <string name="age_count">%1$s세</string>
     <string name="user_count">%1$s명</string>
+
 </resources>

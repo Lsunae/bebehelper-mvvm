@@ -14,9 +14,25 @@ import javax.inject.Inject
 @HiltViewModel
 class GroupingViewModel @Inject constructor(private val repository: GroupingRepository) :
     ViewModel() {
-
+    private val _groupingCreateResult = MutableLiveData<Boolean>()
+    val groupingCreateResult: LiveData<Boolean> = _groupingCreateResult
     private val _groupingList = MutableLiveData<List<GroupingItem>>()
     val groupingList: LiveData<List<GroupingItem>> = _groupingList
+
+    fun createGrouping(groupingItem: GroupingItem) {
+        repository.createGrouping(groupingItem.title, groupingItem.area!!, groupingItem.ageLimit!!, groupingItem.childCount!!, groupingItem.content!!, groupingItem.writerId, groupingItem.writerNickname,
+            object : Callback<Boolean> {
+                override fun onSuccess(response: Boolean) {
+                    Log.i("[${javaClass.name}]", "$response")
+                    _groupingCreateResult.postValue(response)
+                }
+
+                override fun onFailure(message: String) {
+                    Log.i("[${javaClass.name}]", message)
+                    _groupingCreateResult.postValue(false)
+                }
+            })
+    }
 
     fun getGroupingList() {
         repository.getGroupingList(object : Callback<List<Grouping>> {
@@ -24,15 +40,9 @@ class GroupingViewModel @Inject constructor(private val repository: GroupingRepo
                 Log.i("[${javaClass.name}]", "$response")
 
                 val items = mutableListOf<GroupingItem>()
-                /*
                 for (i in response.indices) {
                     items.add(response[i].toGroupingItem())
                 }
-                 */
-
-                // testCode_
-                items.add(GroupingItem(100, "함께 육아하실 분들 모여주세요~~", "잠실동", "4세", 3, "함께 육아해요 ㅎㅎ", 1004, "천사"))
-
                 _groupingList.postValue(items)
             }
 
