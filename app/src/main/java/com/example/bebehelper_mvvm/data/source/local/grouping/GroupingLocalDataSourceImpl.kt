@@ -52,8 +52,13 @@ class GroupingLocalDataSourceImpl @Inject constructor(
 
     }
 
-    override fun getGrouping(email: String, callback: Callback<Grouping>) {
-
+    override fun getGrouping(id: Int, callback: Callback<Grouping>) {
+        appExecutors.diskIO.execute {
+            val grouping = groupingDB.groupingDao().getGrouping(id)
+            appExecutors.mainThread.execute {
+                callback.onSuccess(grouping)
+            }
+        }
     }
 
     override fun getGroupingList(callback: Callback<List<Grouping>>) {
