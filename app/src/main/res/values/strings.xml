@@ -26,6 +26,11 @@
     <string name="age_count">%1$s세</string>
     <string name="user_count">%1$s명</string>
 
+    <!-- Grouping Detail -->
+    <string name="group_detail_area">지역 : %1$s</string>
+    <string name="group_detail_child_age">아이 나이 : >%1$s세</string>
+    <string name="group_detail_child_count">아이 인원 : %1$s명</string>
+
     <!-- Recommended Activity -->
     <string name="play_block">블록 놀이</string>
     <string name="play_drawing">그림 그리기</string>

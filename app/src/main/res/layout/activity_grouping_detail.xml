@@ -3,9 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="content"
+            type="String" />
+
+        <variable
+            name="area"
+            type="String" />
+
+        <variable
+            name="childLimitCount"
+            type="String" />
+
+        <variable
+            name="childLimitAge"
+            type="String" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <include
             android:id="@+id/inc_actionbar"
@@ -29,6 +54,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:textSize="17sp"
                 tools:text="지역 : 석촌동"
+                android:text="@{area}"
                 app:layout_constraintTop_toBottomOf="@+id/ll_group_info" />
 
             <TextView
@@ -39,6 +65,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:textSize="17sp"
                 tools:text="아이 나이 : 3세"
+                android:text="@{childLimitAge}"
                 app:layout_constraintTop_toBottomOf="@+id/ll_group_info" />
 
             <TextView
@@ -49,6 +76,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:textSize="17sp"
                 tools:text="인원 제한 : 4명"
+                android:text="@{childLimitCount}"
                 app:layout_constraintTop_toBottomOf="@+id/ll_group_info" />
 
             <View
@@ -68,6 +96,7 @@
             android:layout_marginHorizontal="20dp"
             android:textSize="17sp"
             tools:text="제목"
+            android:text="@{title}"
             app:layout_constraintTop_toBottomOf="@+id/ll_group_info" />
 
         <TextView
@@ -78,6 +107,7 @@
             android:layout_marginHorizontal="20dp"
             android:textSize="13sp"
             tools:text="내용"
+            android:text="@{content}"
             app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

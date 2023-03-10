@@ -2,11 +2,13 @@ package com.example.bebehelper_mvvm.view.grouping.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bebehelper_mvvm.R
 import com.example.bebehelper_mvvm.data.model.GroupingItem
 import com.example.bebehelper_mvvm.databinding.ItemGroupingBinding
+import com.example.bebehelper_mvvm.util.OnSingleClickListener
 import com.example.bebehelper_mvvm.view.grouping.GroupingFragment
 import com.example.bebehelper_mvvm.util.Utils
 import java.lang.ref.WeakReference
@@ -15,6 +17,15 @@ class GroupingAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private lateinit var context: Context
     private var items = mutableListOf<GroupingItem>()
     lateinit var groupingFragment: WeakReference<GroupingFragment>
+    private lateinit var onItemClickListener: OnItemClickListener
+
+    interface OnItemClickListener {
+        fun onItemClick(item: GroupingItem)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        onItemClickListener = listener
+    }
 
     fun addData(addDataList: List<GroupingItem>) {
         this.items.clear()
@@ -64,6 +75,12 @@ class GroupingAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     String.format(Utils.string(context, R.string.age_count), item.ageLimit)
                 childLimitCount =
                     String.format(Utils.string(context, R.string.user_count), item.childCount)
+
+                clGrouping.setOnClickListener(object : OnSingleClickListener() {
+                    override fun onSingleClick(v: View) {
+                        onItemClickListener.onItemClick(item)
+                    }
+                })
             }
         }
     }

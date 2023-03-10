@@ -16,8 +16,12 @@ class GroupingViewModel @Inject constructor(private val repository: GroupingRepo
     ViewModel() {
     private val _groupingCreateResult = MutableLiveData<Boolean>()
     val groupingCreateResult: LiveData<Boolean> = _groupingCreateResult
+
     private val _groupingList = MutableLiveData<List<GroupingItem>>()
     val groupingList: LiveData<List<GroupingItem>> = _groupingList
+
+    private val _grouping = MutableLiveData<GroupingItem>()
+    val grouping: LiveData<GroupingItem> = _grouping
 
     fun createGrouping(groupingItem: GroupingItem) {
         repository.createGrouping(groupingItem.title, groupingItem.area!!, groupingItem.ageLimit!!, groupingItem.childCount!!, groupingItem.content!!, groupingItem.writerId, groupingItem.writerNickname,
@@ -44,6 +48,28 @@ class GroupingViewModel @Inject constructor(private val repository: GroupingRepo
                     items.add(response[i].toGroupingItem())
                 }
                 _groupingList.postValue(items)
+            }
+
+            override fun onFailure(message: String) {
+                Log.i("[${javaClass.name}]", message)
+            }
+        })
+    }
+
+    fun getGrouping(id: Int) {
+        repository.getGrouping(id, object : Callback<Grouping> {
+            override fun onSuccess(response: Grouping) {
+                Log.i("[${javaClass.name}]", "$response")
+                val groupingItem = GroupingItem(
+                    response.id,
+                    response.title,
+                    response.area,
+                    response.ageLimit,
+                    response.childCount,
+                    response.content,
+                    response.writerId,
+                    response.writerNickname)
+                _grouping.value = groupingItem
             }
 
             override fun onFailure(message: String) {

@@ -6,7 +6,9 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bebehelper_mvvm.R
+import com.example.bebehelper_mvvm.data.model.GroupingItem
 import com.example.bebehelper_mvvm.databinding.FragmentGroupingBinding
+import com.example.bebehelper_mvvm.util.Utils
 import com.example.bebehelper_mvvm.view.base.BaseFragment
 import com.example.bebehelper_mvvm.view.grouping.adapter.GroupingAdapter
 import com.example.bebehelper_mvvm.viewModel.GroupingViewModel
@@ -20,19 +22,32 @@ class GroupingFragment : BaseFragment<FragmentGroupingBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setClickEvent()
+        setUpView()
         setAdapter()
+        setEventListener()
         viewModel.getGroupingList()
         setupViewModel()
     }
 
-    private fun setClickEvent() {
+    private fun setUpView() {
+        binding.incActionbar.tvTitle.text = Utils.string(requireContext(), R.string.grouping)
+    }
+
+    private fun setEventListener() {
         binding.apply {
             ivCreate.setOnClickListener {
                 val intent = Intent(activity, GroupingCreateActivity::class.java)
                 startActivity(intent)
             }
         }
+
+        groupingAdapter.setOnItemClickListener(object : GroupingAdapter.OnItemClickListener {
+            override fun onItemClick(item: GroupingItem) {
+                val intent = Intent(activity, GroupingDetailActivity::class.java)
+                intent.putExtra(ID, item.id)
+                startActivity(intent)
+            }
+        })
     }
 
     /** 리사이클러뷰 어댑터 셋팅 */
@@ -51,8 +66,7 @@ class GroupingFragment : BaseFragment<FragmentGroupingBinding>(R.layout.fragment
         }
     }
 
-    /** 리스트 더보기 */
-    fun apiListMore() {
-
+    companion object {
+        private const val ID = "id"
     }
 }
