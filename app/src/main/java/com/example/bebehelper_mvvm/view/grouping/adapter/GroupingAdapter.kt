@@ -41,11 +41,6 @@ class GroupingAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         when (holder) {
             is GroupingHolder -> {
                 holder.bind(items[position], position)
-
-                // 더보기
-                if (items.size - 10 == position && groupingFragment.get() != null) {
-                    groupingFragment.get()!!.apiListMore()
-                }
             }
         }
     }
