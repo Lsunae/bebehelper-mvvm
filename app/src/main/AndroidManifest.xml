@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.grouping.GroupingCreateActivity"/>
+        <activity android:name=".view.grouping.GroupingDetailActivity"/>
     </application>
 
 </manifest>
