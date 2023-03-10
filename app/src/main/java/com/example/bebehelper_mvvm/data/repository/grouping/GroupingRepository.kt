@@ -25,7 +25,7 @@ interface GroupingRepository {
         callback: Callback<Boolean>
     )
 
-    fun getGrouping(email: String, callback: Callback<Grouping>)
+    fun getGrouping(id: Int, callback: Callback<Grouping>)
 
     fun getGroupingList(callback: Callback<List<Grouping>>)
 

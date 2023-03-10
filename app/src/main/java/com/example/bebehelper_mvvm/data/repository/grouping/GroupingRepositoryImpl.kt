@@ -33,8 +33,8 @@ class GroupingRepositoryImpl @Inject constructor(
 
     }
 
-    override fun getGrouping(email: String, callback: Callback<Grouping>) {
-        localDataSource.getGrouping(email, callback)
+    override fun getGrouping(id: Int, callback: Callback<Grouping>) {
+        localDataSource.getGrouping(id, callback)
     }
 
     override fun getGroupingList(callback: Callback<List<Grouping>>) {
