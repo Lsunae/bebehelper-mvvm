@@ -5,7 +5,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/pink">
+        android:background="@color/white">
 
         <include
             android:id="@+id/inc_actionbar"
