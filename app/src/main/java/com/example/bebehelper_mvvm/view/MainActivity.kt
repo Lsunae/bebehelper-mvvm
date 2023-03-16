@@ -33,7 +33,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
     }
 
-    /** 메뉴 탭 선택 */
     private fun selectMenuTabIndex(type: MenuType?) {
         val navigation = binding.bottomNavigationView
         runOnUiThread {
@@ -45,10 +44,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
     }
 
-    /**
-     * 프래그먼트 변경
-     * 각 프래그먼트 화면 유지를 위해 hide, show 사용
-     */
     private fun changeFragment(type: MenuType) {
         when (type) {
             MenuType.GROUPING -> {
