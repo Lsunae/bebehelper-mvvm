@@ -9,7 +9,7 @@
 
         <include
             android:id="@+id/inc_actionbar"
-            layout="@layout/layout_actionbar"/>
+            layout="@layout/layout_actionbar" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_layout"

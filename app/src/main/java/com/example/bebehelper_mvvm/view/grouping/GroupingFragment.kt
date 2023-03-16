@@ -50,7 +50,6 @@ class GroupingFragment : BaseFragment<FragmentGroupingBinding>(R.layout.fragment
         })
     }
 
-    /** 리사이클러뷰 어댑터 셋팅 */
     private fun setAdapter() {
         groupingAdapter = GroupingAdapter()
         binding.rvGrouping.apply {
