@@ -18,7 +18,8 @@ import com.example.bebehelper_mvvm.viewModel.GroupingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GroupingCreateActivity : BaseActivity<ActivityGroupingCreateBinding>(R.layout.activity_grouping_create) {
+class GroupingCreateActivity :
+    BaseActivity<ActivityGroupingCreateBinding>(R.layout.activity_grouping_create) {
     private val viewModel: GroupingViewModel by viewModels()
     private lateinit var dialog: CustomDialog
     private var groupingItem = GroupingItem()
@@ -47,12 +48,17 @@ class GroupingCreateActivity : BaseActivity<ActivityGroupingCreateBinding>(R.lay
                     groupingItem.title = inputTitle.text.toString()
                     groupingItem.content = inputContent.text.toString()
                     groupingItem.apply {
-                        println("create_click_item_ $this")
                         if (!this.area.isNullOrEmpty() && !this.ageLimit.isNullOrEmpty() && this.childCount != null && !this.content.isNullOrEmpty()) {
-                            println("create_click_success_ ")
                             viewModel.createGrouping(this)
                         } else {
-                            println("create_click_fail_ ")
+                            Toast.makeText(
+                                this@GroupingCreateActivity,
+                                Utils.string(
+                                    this@GroupingCreateActivity,
+                                    R.string.group_create_fail
+                                ),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
@@ -99,10 +105,18 @@ class GroupingCreateActivity : BaseActivity<ActivityGroupingCreateBinding>(R.lay
     private fun setupViewModel() {
         viewModel.groupingCreateResult.observe(this) {
             if (it == true) {
-                Toast.makeText(this, Utils.string(this, R.string.group_create_success), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    Utils.string(this, R.string.group_create_success),
+                    Toast.LENGTH_SHORT
+                ).show()
                 this.finish()
             } else {
-                Toast.makeText(this, Utils.string(this, R.string.group_create_fail), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    Utils.string(this, R.string.group_create_fail),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
